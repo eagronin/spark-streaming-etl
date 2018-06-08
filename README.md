@@ -15,7 +15,7 @@ Below is an example of the streaming measurements coming from the weather statio
 1419408019	0R1,Dn=059D,Dm=065D,Dx=075D,Sn=8.8M,Sm=9.5M,Sx=10.3M
 ```
 
-Each line consists of a timestamp and a set of measurements.  Each measurement has an abbreviation, such as Dn, Dm, Sn, etc.  In a discussion that follows, the data for the average wind direction (which has an abbreviation Dm) is extracted, processed and recorded to a file.  The dictionary of all the abbreviations is provided below:
+Each line consists of a timestamp and a set of measurements.  Each measurement has an abbreviation, such as Dn, Dm, Sn, etc.  The dictionary of all the abbreviations is provided below:
 
 ```
 Sn      Wind speed minimum m/s, km/h, mph, knots #,M, K, S, N
@@ -42,6 +42,8 @@ Vs      Supply voltage V V
 Vr      3.5 V ref. voltage V V
 ```
 
+In a discussion that follows, the data for the average wind direction (which has an abbreviation Dm) is extracted, processed and recorded to a file.
+
 First, we define a function that parses each line of the streaming data (such as `1419408015	0R1,Dn=059D,Dm=066D,Dx=080D,Sn=8.5M,Sm=9.5M,Sx=10.3M`) and returns the average wind direction (Dm):
 
 ```python
@@ -64,7 +66,7 @@ from pyspark.streaming import StreamingContext
 ssc = StreamingContext(sc, 1)                                
 ```
 
-The argument sc is the SparkContext, and 1 specifies a batch interval of one second.
+The argument sc is the SparkContext, and 1 specifies a batch interval of one second (i.e., each sliding 10-second window as defined below will have approximately 10 lines of data).
 
 A connection to the streaming weather data is opened as follows:
 
