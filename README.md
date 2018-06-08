@@ -69,7 +69,7 @@ The argument sc is the SparkContext, and 1 specifies a batch interval of one sec
 A connection to the streaming weather data is opened as follows:
 
 ```python
-lines = ssc.socketTextStream("rtd.hpwren.ucsd.edu", 12020)    # Open a connection to the streaming weather data
+lines = ssc.socketTextStream("rtd.hpwren.ucsd.edu", 12020)
 ```
 
 This create a new variable `lines` to be a Spark DStream that streams the lines of output from the weather station.
