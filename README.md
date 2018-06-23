@@ -6,6 +6,10 @@ The steps outlined below describe a fully automated process of connecting to a w
 
 Processing of the data and saving them to a file is discussed in the [next section](https://eagronin.github.io/weather-streaming-spark-prepare/).
 
+This project is based on assignments from Big Data Specialization by University of California San Diego on Coursera.
+
+The analysis for this project was performed in Spark.
+
 ## Data
 
 Below is an example of the streaming measurements coming from the weather station:
