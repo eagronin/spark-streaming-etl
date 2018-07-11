@@ -50,7 +50,7 @@ Vs      Supply voltage V V
 Vr      3.5 V ref. voltage V V
 ```
 
-We extract only the data for the average wind direction (which has an abbreviation Dm) which is futher processed in the [next section](https://eagronin.github.io/weather-streaming-spark-prepare/).
+We extract only the data for the average wind direction (which has an abbreviation Dm) which is further processed in the [next section](https://eagronin.github.io/weather-streaming-spark-prepare/).
 
 First, we define a function that parses each line of the streaming data (such as `1419408015	0R1,Dn=059D,Dm=066D,Dx=080D,Sn=8.5M,Sm=9.5M,Sx=10.3M`) and returns the average wind direction (Dm):
 
@@ -90,7 +90,7 @@ Then we read the average wind speed from each line and store it in a new DStream
 vals = lines.flatMap(parse)
 ```
 
-The flatMap() function iterates over the lines transmitted by the sensors, and calls the parse() function defined above in order to extract the average wind speed from each line.
+The flatMap() function iterates over the lines transmitted by the sensors and calls the parse() function defined above in order to extract the average wind speed from each line.
 
 Next, we create a sliding window over the measurements by calling the window() method:
 
